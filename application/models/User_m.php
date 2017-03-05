@@ -20,6 +20,24 @@ class User_m extends CI_Model
 		else {
 			return false;
 		}
+	}
+
+	public function register($username, $email, $password, $fullname)
+	{
+		$data = array(
+				'id' => '',
+				'fullname' => $fullname,
+				'email' => $email,
+				'username' => $username,
+				'password' => $password
+			);
+
+		if($this->db->insert('users', $data)){
+			return true;
+		}
+		else{
+			return false;
+		}
 
 	}
 }
